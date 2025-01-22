@@ -51,7 +51,7 @@ check_letter()
 def check_voting_eligibility():
     # Your control flow logic goes here
     vote_age = 18
-    age_input = int(input("Please enter your age: ").strip().isdigit())
+    age_input = int(input("Please enter your age: ").strip())
     if age_input >= vote_age:
         print("Eligible to vote!")
     elif age_input < 0:
@@ -123,8 +123,22 @@ calculate_dog_years()
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
 def weather_advice():
-    # Your control flow logic goes here
-    print('E4 - To be complete')
+    # Your control flow logic goes here    
+    is_it_cold = input ("Is the weather cold? yes or no?: ").strip().lower() == "yes"
+    is_it_raining = input ("Is it raining? yes or no?: ").strip().lower() == "yes"
+
+    if is_it_cold and is_it_raining:
+        print("Wear a waterproof coat.")
+    elif not is_it_cold and not is_it_raining:
+        print("Wear light clothing.")
+    elif is_it_cold and not is_it_raining:
+        print("Wear a warm coat.")
+    elif not is_it_cold and is_it_raining:
+        print("Carry an umbrella.")
+    else:
+        print("It's t-shirt weather!")
+    
+    print('E4 - Complete')
 
 # Call the function
 weather_advice()
@@ -153,7 +167,21 @@ weather_advice()
 
 def determine_season():
     # Your control flow logic goes here
-    print('E5 - To be complete')
+    
+    month = input ("Enter the month of the year (Jan - Dec): ").strip().lower()
+    date = int(input ("Enter the day of the month: ").strip())
+    if (month == "dec" and date >= 21) or (month == "jan") or (month == "feb") or (month == "mar" and date <= 19):
+        season = "Winter"
+    elif (month == "mar" and date >= 20) or (month == "apr") or (month == "may") or (month == "jun" and date <= 20):
+        season = "Spring"
+    elif (month == "jun" and date >= 21) or (month == "jul") or (month == "aug") or (month == "sep" and date <= 21):
+        season = "Summer"
+    elif (month == "sep" and date >= 22) or (month == "oct") or (month == "nov") or (month == "dec" and date <= 20):
+        season == "Autumn"
+    else:
+        print("Please enter a valid month and date!")
+    print(f"{month} {date} is in {season}.")
+print('E5 - Complete')
 
 # Call the function
 determine_season()
